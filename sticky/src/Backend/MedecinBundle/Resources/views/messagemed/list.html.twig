@@ -1,0 +1,81 @@
+{% extends "BackendMedecinBundle::layout.html.twig" %}
+{% block haed %}
+    {{ parent() }}
+    {% block title %}{{ parent() }} Messagerie{% endblock %}
+
+{% endblock %}
+{%block header %}
+    <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>Messagerie</h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+            <li class="active">Messagerie</li>
+          </ol>
+        </section>
+{% endblock %}
+ {% block main %}
+<form action="" method="post">
+
+{% for m in msg%}
+    <div class="box-header with-border"></div>  
+    <div class="box-body">
+          
+                  <!-- Conversations are loaded here -->
+                  <div class="direct-chat-messages">
+                    <!-- Message. Default to the left -->
+                   <div  class="direct-chat-msg">
+                      <div class='direct-chat-info clearfix'>
+                        <span class='direct-chat-name pull-left' name="patient">{{pat.getNomMedecin()}}</span>
+                        <span class='direct-chat-timestamp pull-right'>{{m.dateEnv|date('d/m/Y')}} </span>
+                      </div><!-- /.direct-chat-info -->
+               {#       <img class="direct-chat-img" alt="Embedded Image" src="data:image/png;base64,{{imgmed}}"  width="80" height="80" />#}<!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+                       {{m.Corp}}
+                      </div><!-- /.direct-chat-text -->
+                    </div><!-- /.direct-chat-msg -->
+   </div>        
+{% endfor %}
+     <div class="direct-chat-msg right">
+
+    <div class="direct-chat-info clearfix"></div>
+    <!--
+
+     /.direct-chat-info 
+
+    -->
+    <img class="direct-chat-img" alt="Embedded Image" src="data:image/png;base64,{{img}}"></img>
+     
+    <div class="direct-chat-text">
+        {{msg2.Corp}}
+    </div>
+    <!--
+
+      
+    -->
+
+</div>
+      </div>
+             
+ 
+  <div class="direct-chat-messages">
+                    <!-- Message. Default to the left -->
+                   <div  class="direct-chat-msg">
+                      <div class='direct-chat-info clearfix'>
+                       <div class="input-group">
+
+    <input class="form-control" type="text" placeholder="Type Message ..." name="message"></input>
+    <span class="input-group-btn">
+        
+        <input class="btn btn-warning btn-flat"  type="submit" value="envoyer" />
+    </span>
+
+</div>
+                      </div><!-- /.direct-chat-info -->
+                     {# <img class="direct-chat-img" alt="Embedded Image" src="data:image/png;base64,{{imgmed}}"  width="80" height="80" />#}<!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+                     
+                      </div><!-- /.direct-chat-text -->
+                    </div>
+    </form>    
+    {% endblock %}

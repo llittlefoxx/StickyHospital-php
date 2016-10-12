@@ -1,0 +1,35 @@
+{% extends "StickyBitHospitalBundle::layout.html.twig" %}
+{% block title %}{{ parent() }}  Mes Ordonnances{% endblock %}
+{% block content %}
+    <h1>Liste des Ordonnances</h1>
+{{ parent() }} 
+
+{% block body -%}
+    {%block main %}
+        <table  id="example1" class="table table-bordered table-striped" style="text-align: center">  
+    <tr>
+        <td> Numero Ordonnance</td>
+        <td> Date Ordonnance</td>
+        <td> Description</td>
+        <td> Voir Plus </td>
+        
+    </tr>
+
+
+
+{% for ordonnance in tab %}
+    <tr> 
+        <td> {{ ordonnance.idOrdonnance }}  </td>
+        <td> {{ ordonnance.dateOrdonnance|date('D M Y') }} </td>
+        <td>{{ ordonnance.description }} </td>
+        
+        <td> <a href="{{path('sticky_bit_hospital_ligne_ord',{'id':ordonnance.idOrdonnance})}}"> Afficher</a></td>
+    </tr>
+    {% endfor %}
+</table>
+    
+   {% endblock %}
+
+{% endblock %}
+{% endblock %}
+

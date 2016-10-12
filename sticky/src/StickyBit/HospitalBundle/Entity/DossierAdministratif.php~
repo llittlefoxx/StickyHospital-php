@@ -1,0 +1,42 @@
+<?php
+
+namespace StickyBit\HospitalBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * DossierAdministratif
+ *
+ * @ORM\Table(name="dossier_administratif")
+ * @ORM\Entity
+ */
+class DossierAdministratif
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_dadmin", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idDadmin;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_creation", type="datetime", nullable=true)
+     */
+    private $dateCreation;
+
+    /**
+     * @var \Dossier
+     *
+     * @ORM\ManyToOne(targetEntity="Dossier")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_dossierPatient", referencedColumnName="id_dossierPatient")
+     * })
+     */
+    private $idDossierpatient;
+
+
+}

@@ -1,0 +1,18 @@
+Admin:
+    type: entity
+    table: admin
+    fields:
+        login:
+            id: true
+            type: string
+            length: 254
+            fixed: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        pwd:
+            type: string
+            length: 254
+            fixed: false
+            nullable: true
+    lifecycleCallbacks: {  }

@@ -1,0 +1,19 @@
+Allergie:
+    type: entity
+    table: allergie
+    fields:
+        idAllergie:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_allergie
+            generator:
+                strategy: IDENTITY
+        nomAllergie:
+            type: string
+            length: 254
+            fixed: false
+            nullable: true
+            column: nom_allergie
+    lifecycleCallbacks: {  }

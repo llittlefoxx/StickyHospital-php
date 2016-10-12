@@ -1,0 +1,33 @@
+Traitement:
+    type: entity
+    table: traitement
+    fields:
+        idTraitement:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_traitement
+            generator:
+                strategy: IDENTITY
+        libTraitement:
+            type: string
+            length: 254
+            fixed: false
+            nullable: true
+            column: lib_traitement
+        prixTraitement:
+            type: float
+            nullable: true
+            column: prix_traitement
+    manyToOne:
+        idIntervention:
+            targetEntity: Intervention
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_intervention:
+                    referencedColumnName: id_intervention
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

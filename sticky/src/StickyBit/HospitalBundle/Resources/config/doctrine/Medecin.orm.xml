@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="StickyBit\HospitalBundle\Entity\Medecin" table="medecin">
+    <id name="idMedecin" type="integer" column="id_medecin">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nomMedecin" type="string" column="nom_medecin" length="254" nullable="true"/>
+    <field name="prenomMedecin" type="string" column="prenom_medecin" length="254" nullable="true"/>
+    <field name="adresseMedecin" type="string" column="adresse_medecin" length="254" nullable="true"/>
+    <field name="mailMedecin" type="string" column="mail_medecin" length="254" nullable="true"/>
+    <field name="telMedecin" type="string" column="tel_medecin" length="254" nullable="true"/>
+    <field name="specialiteMedecin" type="string" column="specialite_medecin" length="254" nullable="true"/>
+    <field name="cinMedecin" type="string" column="cin_medecin" length="254" nullable="true"/>
+    <many-to-one field="idService" target-entity="Service">
+      <join-columns>
+        <join-column name="id_service" referenced-column-name="id_serv"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

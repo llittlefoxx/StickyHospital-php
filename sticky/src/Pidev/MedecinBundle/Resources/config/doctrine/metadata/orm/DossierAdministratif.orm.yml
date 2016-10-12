@@ -1,0 +1,27 @@
+DossierAdministratif:
+    type: entity
+    table: dossier_administratif
+    fields:
+        idDadmin:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_dadmin
+            generator:
+                strategy: IDENTITY
+        dateCreation:
+            type: datetime
+            nullable: true
+            column: date_creation
+    manyToOne:
+        idDossierpatient:
+            targetEntity: Dossier
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_dossierPatient:
+                    referencedColumnName: id_dossierPatient
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

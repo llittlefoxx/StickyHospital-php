@@ -1,0 +1,32 @@
+Observation:
+    type: entity
+    table: observation
+    fields:
+        idObservation:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_observation
+            generator:
+                strategy: IDENTITY
+        texte:
+            type: string
+            length: 254
+            fixed: false
+            nullable: true
+        dateObservation:
+            type: datetime
+            nullable: true
+            column: date_observation
+    manyToOne:
+        idDossiermedical:
+            targetEntity: DossierMedical
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_dossiermedical:
+                    referencedColumnName: id_dossiermedical
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

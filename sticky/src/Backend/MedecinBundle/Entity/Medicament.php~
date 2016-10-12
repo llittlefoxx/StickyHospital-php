@@ -1,0 +1,60 @@
+<?php
+
+namespace Backend\MedecinBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Medicament
+ *
+ * @ORM\Table(name="medicament")
+ * @ORM\Entity
+ */
+class Medicament
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_medicament", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idMedicament;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lib_medic", type="string", length=254, nullable=true)
+     */
+    private $libMedic;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="qte_valable", type="integer", nullable=true)
+     */
+    private $qteValable;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="effect_ind", type="string", length=254, nullable=true)
+     */
+    private $effectInd;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="prix", type="float", nullable=true)
+     */
+    private $prix;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="quant_min", type="integer", nullable=false)
+     */
+    private $quantMin;
+
+
+}

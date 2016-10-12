@@ -1,0 +1,79 @@
+<?php
+
+namespace Backend\MedecinBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Ordonnance
+ *
+ * @ORM\Table(name="ordonnance")
+ * @ORM\Entity
+ */
+class Ordonnance
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_ordonnance", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idOrdonnance;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_ordonnance", type="datetime", nullable=true)
+     */
+    private $dateOrdonnance;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=254, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var \Medicament
+     *
+     * @ORM\ManyToOne(targetEntity="Medicament")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_medicament", referencedColumnName="id_medicament")
+     * })
+     */
+    private $idMedicament;
+
+    /**
+     * @var \DossierMedical
+     *
+     * @ORM\ManyToOne(targetEntity="DossierMedical")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_dossiermedical", referencedColumnName="id_dossiermedical")
+     * })
+     */
+    private $idDossiermedical;
+
+    public function getIdOrdonnance() {
+        return $this->idOrdonnance;
+    }
+
+    public function getDateOrdonnance() {
+        return $this->dateOrdonnance;
+    }
+
+    public function getDescription() {
+        return $this->description;
+    }
+
+    public function getIdMedicament() {
+        return $this->idMedicament;
+    }
+
+    public function getIdDossiermedical() {
+        return $this->idDossiermedical;
+    }
+
+
+}

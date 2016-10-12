@@ -1,0 +1,72 @@
+
+ {#{% extends "StickyBitHospitalBundle::layout.html.twig" %}
+{% block title %}{{ parent() }} Home Page {% endblock %}
+{% block content %}{{ parent() }}
+<form action="" method="post">
+    {{form_widget(form)}}
+    <input type="submit" value="envoyer"/>
+    
+</form> 
+ {% endblock %}
+ #}
+{% extends "BackendMedecinBundle::layout.html.twig" %}
+{% block title %}{{ parent() }} Home Page {% endblock %}
+{% block content %}{{ parent() }}
+ 
+   
+    
+    <div class="col-md-4">
+
+   <div class="box box-danger">
+
+    <div class="box-header with-border">
+        <h3 class="box-title"></h3>
+        <div class="box-tools pull-right">
+            <span class="label label-danger">Send new message</span>
+          
+        </div>
+    </div>
+    <!--
+
+     /.box-header 
+
+    -->
+    <div class="box-body no-padding" style="display: block;">
+
+       
+        <div class="box-body no-padding">
+            <ul class="users-list clearfix">
+                {%for m in medecin2 %}
+                <li>
+                     <a href="{{path('envoyermsgpat',{'id2':m.idPatient})}}">
+                         <img alt="User Image" src="data:image/png;base64,{{img}}" width="80" height="80"></img>
+                    </a>
+                    <span class="users-list-date">{{m.nomPatient}} </span>
+                </li>
+               {% endfor %}
+            </ul>
+            <!--
+
+             /.users-list 
+
+            -->
+        </div>
+        <!--
+
+         /.box-body 
+
+        -->
+        <div class="box-footer text-center"></div>
+        <!--
+
+         /.box-footer 
+
+        -->
+    </div>
+    <!--
+
+    /.box 
+
+    -->
+
+</div>{% endblock %}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="StickyBit\HospitalBundle\Entity\Patient" table="patient">
+    <id name="idPatient" type="integer" column="id_patient">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nomPatient" type="string" column="nom_patient" length="254" nullable="false"/>
+    <field name="prenomPatient" type="string" column="prenom_patient" length="254" nullable="false"/>
+    <field name="cinPatient" type="integer" column="cin_patient" nullable="false"/>
+    <field name="adresse" type="string" column="adresse" length="254" nullable="true"/>
+    <field name="telPatient" type="string" column="tel_patient" length="254" nullable="true"/>
+    <field name="mailPatient" type="string" column="mail_patient" length="254" nullable="true"/>
+    <field name="urlPhotoPatient" type="blob" column="url_photo_patient" nullable="true"/>
+    <field name="sexPatient" type="string" column="sex_patient" length="254" nullable="true"/>
+    <field name="dateNPatient" type="datetime" column="date_n_patient" nullable="true"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,37 @@
+Chambre:
+    type: entity
+    table: chambre
+    fields:
+        idChambre:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_chambre
+            generator:
+                strategy: IDENTITY
+        capacite:
+            type: integer
+            unsigned: false
+            nullable: true
+        type:
+            type: string
+            length: 254
+            fixed: false
+            nullable: true
+        etat:
+            type: string
+            length: 25
+            fixed: false
+            nullable: true
+    manyToOne:
+        idServ:
+            targetEntity: Service
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_serv:
+                    referencedColumnName: id_serv
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

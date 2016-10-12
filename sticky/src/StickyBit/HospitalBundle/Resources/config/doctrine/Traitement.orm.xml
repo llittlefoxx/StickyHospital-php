@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="StickyBit\HospitalBundle\Entity\Traitement" table="traitement">
+    <id name="idTraitement" type="integer" column="id_traitement">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="libTraitement" type="string" column="lib_traitement" length="254" nullable="true"/>
+    <field name="prixTraitement" type="float" column="prix_traitement" nullable="true"/>
+    <many-to-one field="idIntervention" target-entity="Intervention">
+      <join-columns>
+        <join-column name="id_intervention" referenced-column-name="id_intervention"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idDossiermedical" target-entity="DossierMedical">
+      <join-columns>
+        <join-column name="id_dossiermedical" referenced-column-name="id_dossiermedical"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

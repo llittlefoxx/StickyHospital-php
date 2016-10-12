@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="StickyBit\HospitalBundle\Entity\Facture" table="facture">
+    <id name="idFacture" type="integer" column="id_facture">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="dateFacturation" type="datetime" column="date_facturation" nullable="true"/>
+    <field name="etat" type="boolean" column="etat" nullable="true"/>
+    <field name="totalFacture" type="float" column="total_facture" nullable="true"/>
+    <many-to-one field="idDadmin" target-entity="DossierAdministratif">
+      <join-columns>
+        <join-column name="id_dadmin" referenced-column-name="id_dadmin"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idPatient" target-entity="Patient">
+      <join-columns>
+        <join-column name="id_patient" referenced-column-name="id_patient"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

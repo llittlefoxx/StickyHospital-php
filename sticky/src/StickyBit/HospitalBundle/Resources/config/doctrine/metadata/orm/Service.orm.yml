@@ -1,0 +1,19 @@
+Service:
+    type: entity
+    table: service
+    fields:
+        idServ:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_serv
+            generator:
+                strategy: IDENTITY
+        nomServ:
+            type: string
+            length: 254
+            fixed: false
+            nullable: true
+            column: nom_serv
+    lifecycleCallbacks: {  }

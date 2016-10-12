@@ -1,0 +1,37 @@
+Intervention:
+    type: entity
+    table: intervention
+    fields:
+        idIntervention:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_intervention
+            generator:
+                strategy: IDENTITY
+        libIntervention:
+            type: string
+            length: 254
+            fixed: false
+            nullable: true
+            column: lib_intervention
+        prixInterv:
+            type: float
+            nullable: true
+            column: prix_interv
+        dateInterv:
+            type: datetime
+            nullable: true
+            column: date_interv
+    manyToOne:
+        idTraitement:
+            targetEntity: Traitement
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_traitement:
+                    referencedColumnName: id_traitement
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

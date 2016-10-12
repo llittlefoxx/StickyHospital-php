@@ -1,0 +1,217 @@
+<?php
+
+namespace Backend\MedecinBundle\Controller;
+
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Backend\MedecinBundle\Entity\Maladie;
+use Backend\MedecinBundle\Form\MaladieType;
+
+/**
+ * Maladie controller.
+ *
+ * @Route("/maladie")
+ */
+class MaladieController extends Controller
+{
+
+    /**
+     * Lists all Maladie entities.
+     *
+     * @Route("/", name="maladie")
+     * @Method("GET")
+     * @Template()
+     */
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('BackendMedecinBundle:Maladie')->findAll();
+
+        return array(
+            'entities' => $entities,
+        );
+    }
+     public function ajoutAction($id) {
+        $Maladie = new Maladie();
+        $form = $this->createForm(new MaladieType(), $Maladie);
+        $request = $this->get('request');
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($Maladie);
+            $em->flush();
+             return $this->render('BackendMedecinBundle:Maladie:new.html.twig', array('Form' => $form->createView(),'id'=>$id));
+        }
+        return $this->render('BackendMedecinBundle:Maladie:new.html.twig', array('Form' => $form->createView(),'id'=>$id));
+    }
+    public function deleteAction($id,$idm) {
+        $em = $this->getDoctrine()->getManager();
+        $Maladie = $em->getRepository('BackendMedecinBundle:Maladie')->find($id);
+        $em->remove($Maladie);
+        $em->flush();
+       return $this->redirect($this->generateUrl("backend_hospital_dossiermedical",array('id'=> $idm)));
+    }
+
+    /**
+    * Creates a form to create a Maladie entity.
+    *
+    * @param Maladie $entity The entity
+    *
+    * @return \Symfony\Component\Form\Form The form
+    */
+    private function createCreateForm(Maladie $entity)
+    {
+        $form = $this->createForm(new MaladieType(), $entity, array(
+            'action' => $this->generateUrl('maladie_create'),
+            'method' => 'POST',
+        ));
+
+        $form->add('submit', 'submit', array('label' => 'Create'));
+
+        return $form;
+    }
+
+    /**
+     * Displays a form to create a new Maladie entity.
+     *
+     * @Route("/new", name="maladie_new")
+     * @Method("GET")
+     * @Template()
+     */
+    public function newAction()
+    {
+        $entity = new Maladie();
+        $form   = $this->createCreateForm($entity);
+
+        return array(
+            'entity' => $entity,
+            'form'   => $form->createView(),
+        );
+    }
+
+    /**
+     * Finds and displays a Maladie entity.
+     *
+     * @Route("/{id}", name="maladie_show")
+     * @Method("GET")
+     * @Template()
+     */
+    public function showAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('BackendMedecinBundle:Maladie')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Maladie entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+
+        return array(
+            'entity'      => $entity,
+            'delete_form' => $deleteForm->createView(),
+        );
+    }
+
+    /**
+     * Displays a form to edit an existing Maladie entity.
+     *
+     * @Route("/{id}/edit", name="maladie_edit")
+     * @Method("GET")
+     * @Template()
+     */
+    public function editAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('BackendMedecinBundle:Maladie')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Maladie entity.');
+        }
+
+        $editForm = $this->createEditForm($entity);
+        $deleteForm = $this->createDeleteForm($id);
+
+        return array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        );
+    }
+
+    /**
+    * Creates a form to edit a Maladie entity.
+    *
+    * @param Maladie $entity The entity
+    *
+    * @return \Symfony\Component\Form\Form The form
+    */
+    private function createEditForm(Maladie $entity)
+    {
+        $form = $this->createForm(new MaladieType(), $entity, array(
+            'action' => $this->generateUrl('maladie_update', array('id' => $entity->getId())),
+            'method' => 'PUT',
+        ));
+
+        $form->add('submit', 'submit', array('label' => 'Update'));
+
+        return $form;
+    }
+    /**
+     * Edits an existing Maladie entity.
+     *
+     * @Route("/{id}", name="maladie_update")
+     * @Method("PUT")
+     * @Template("BackendMedecinBundle:Maladie:edit.html.twig")
+     */
+    public function updateAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('BackendMedecinBundle:Maladie')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Maladie entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+        $editForm = $this->createEditForm($entity);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isValid()) {
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('maladie_edit', array('id' => $id)));
+        }
+
+        return array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        );
+    }
+ 
+
+    /**
+     * Creates a form to delete a Maladie entity by id.
+     *
+     * @param mixed $id The entity id
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm($id)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('maladie_delete', array('id' => $id)))
+            ->setMethod('DELETE')
+            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->getForm()
+        ;
+    }
+}

@@ -1,0 +1,76 @@
+<?php
+
+namespace Backend\MedecinBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * LigneFacture
+ *
+ * @ORM\Table(name="ligne_facture")
+ * @ORM\Entity
+ */
+class LigneFacture
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_ligne", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idLigne;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="quantite", type="integer", nullable=true)
+     */
+    private $quantite;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="prix", type="float", nullable=true)
+     */
+    private $prix;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lib_ligne", type="string", length=254, nullable=true)
+     */
+    private $libLigne;
+
+    /**
+     * @var \Medicament
+     *
+     * @ORM\ManyToOne(targetEntity="Medicament")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_medicament", referencedColumnName="id_medicament")
+     * })
+     */
+    private $idMedicament;
+
+    /**
+     * @var \Intervention
+     *
+     * @ORM\ManyToOne(targetEntity="Intervention")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_intervention", referencedColumnName="id_intervention")
+     * })
+     */
+    private $idIntervention;
+
+    /**
+     * @var \Facture
+     *
+     * @ORM\ManyToOne(targetEntity="Facture")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_facture", referencedColumnName="id_facture")
+     * })
+     */
+    private $idFacture;
+
+
+}

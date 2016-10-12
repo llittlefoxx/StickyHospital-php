@@ -1,0 +1,124 @@
+{# empty Twig template #}
+<h1>Recherche patient</h1>
+<form action="" method="POST">
+    Recherche par nom de patient:  <input type="text" name="search"/>
+    <input type="submit" value="Recherche">
+</form>
+<table border="1" class="defaut" >
+    <tr>
+        <th>id</th>
+        <th>nom</th>
+        <th>prenom</th>
+        
+      
+    </tr>
+    {% for f in pat %}
+        
+        <tr class="defaut" id="ligne+{{f.idPatient}}" onClick="SelectLigne(this)">
+            <td class="defaut">{{f.idPatient}}</td>
+            <td class="defaut">{{f.nomPatient}}</td>
+            <td class="defaut">{{f.prenomPatient}}</td>
+            
+        </tr>
+       
+    {% endfor %}
+</table> 
+<input type="button" value="Valider" id="BNom" onClick="ConfirmChoix()">
+<div id="idDiv" style="">
+&nbsp;
+</div>
+ <style type="text/css">
+<!--
+.defaut{
+border-style: solid;
+border-color: #AAAAAA;
+border-width: 2px;
+}
+ 
+.selection{
+border-style: solid;
+border-color: #AAAAAA;
+border-width: 2px;
+background-color: #8888DD;
+}
+ 
+td{
+cursor: pointer;
+}
+ 
+#idDiv{
+padding: 2px;
+border-width: 2px;
+border-style: inset;
+border-color: #AAAAAA;
+}
+//-->
+</style>
+ 
+<script type="text/javascript">
+<!--
+ObjSelec = null;
+function SelectLigne(obj)
+{
+ var idLigne=obj.id;
+ obj.className="selection";
+ 
+ if (ObjSelec!=null)
+ {
+    ObjSelec.className = "defaut";
+    ObjSelec = obj;
+ }
+ else
+ {
+    ObjSelec = obj;
+ }
+}
+ 
+function ConfirmChoix()
+{
+ var msg = "Vous avez choisi : ";
+ var objId, elmt, resultat, i, n;
+ var Tab=new Array();
+ 
+ if (ObjSelec != null)
+ {
+    objId = ObjSelec.id;
+    switch(objId)
+    {
+    case "ligne1":
+         msg = msg + "ligne 1";
+         break;
+    case "ligne2":
+         msg = msg + "ligne 2";
+         break;
+    case "ligne3":
+         msg = msg + "ligne 3";
+         break;
+    }
+ 
+    resultat = window.confirm(msg + "\n Vous confirmez ?");
+ 
+    if (resultat)
+    {
+      elmt = document.getElementById(objId);
+      n=0;
+      for(i=0;i<elmt.childNodes.length;i++)
+      {
+         if (elmt.childNodes[i].nodeName=="TD" || elmt.childNodes[i].nodeName=="td")
+         {
+             Tab[n] = elmt.childNodes[i].innerHTML;
+             n++;
+         }
+      }
+      elmt = document.getElementById("idDiv");
+      elmt.innerHTML = "Votre s&eacute;lection&nbsp;: "+ Tab;
+    }
+ }
+ else
+ {
+    alert("Vous n'avez rien sélectionné !!");
+ }
+}
+ 
+//-->
+</script>

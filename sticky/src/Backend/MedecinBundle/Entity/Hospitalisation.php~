@@ -1,0 +1,90 @@
+<?php
+
+namespace Backend\MedecinBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Hospitalisation
+ *
+ * @ORM\Table(name="hospitalisation")
+ * @ORM\Entity
+ */
+class Hospitalisation
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_hos", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idHos;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="date_h", type="string", length=50, nullable=true)
+     */
+    private $dateH;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="date_s", type="string", length=50, nullable=true)
+     */
+    private $dateS;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_med", type="integer", nullable=true)
+     */
+    private $idMed;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type_admisssion", type="string", length=254, nullable=true)
+     */
+    private $typeAdmisssion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etat_patient", type="string", length=254, nullable=true)
+     */
+    private $etatPatient;
+
+    /**
+     * @var \Patient
+     *
+     * @ORM\ManyToOne(targetEntity="Patient")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_patient", referencedColumnName="id_patient")
+     * })
+     */
+    private $idPatient;
+
+    /**
+     * @var \Admin
+     *
+     * @ORM\ManyToOne(targetEntity="Admin")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="adm_login", referencedColumnName="login")
+     * })
+     */
+    private $admLogin;
+
+    /**
+     * @var \Lit
+     *
+     * @ORM\ManyToOne(targetEntity="Lit")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_lit", referencedColumnName="id_lit")
+     * })
+     */
+    private $idLit;
+
+
+}

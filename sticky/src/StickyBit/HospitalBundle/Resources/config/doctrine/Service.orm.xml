@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="StickyBit\HospitalBundle\Entity\Service" table="service">
+    <id name="idServ" type="integer" column="id_serv">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nomServ" type="string" column="nom_serv" length="254" nullable="true"/>
+  </entity>
+</doctrine-mapping>

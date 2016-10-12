@@ -1,0 +1,69 @@
+<?php
+
+namespace StickyBit\HospitalBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Consultation
+ *
+ * @ORM\Table(name="consultation")
+ * @ORM\Entity
+ */
+class Consultation
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_consultation", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idConsultation;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_consultation", type="datetime", nullable=true)
+     */
+    private $dateConsultation;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type_consultation", type="string", length=254, nullable=true)
+     */
+    private $typeConsultation;
+
+    /**
+     * @var \Patient
+     *
+     * @ORM\ManyToOne(targetEntity="Patient")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_patient", referencedColumnName="id_patient")
+     * })
+     */
+    private $idPatient;
+
+    /**
+     * @var \DossierMedical
+     *
+     * @ORM\ManyToOne(targetEntity="DossierMedical")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_dossiermedical", referencedColumnName="id_dossiermedical")
+     * })
+     */
+    private $idDossiermedical;
+
+    /**
+     * @var \Medecin
+     *
+     * @ORM\ManyToOne(targetEntity="Medecin")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_medecin", referencedColumnName="id_medecin")
+     * })
+     */
+    private $idMedecin;
+
+
+}

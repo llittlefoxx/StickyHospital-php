@@ -1,0 +1,11 @@
+{# empty Twig template #}
+<form action="" method="post">
+ <select name="ser"> 
+ {% for m in mods%} 
+    <option value="{{m.idserv}}">{{m.nomServ}}</option>
+ {% endfor %}
+ </select>
+ 
+ <input type="submit" value="Next"/>
+   
+    </form>

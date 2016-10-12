@@ -1,0 +1,72 @@
+backend_medecin_homepage:
+    pattern:  /hello
+    defaults: { _controller: BackendMedecinBundle:Default:index }
+    
+dossiermedical:
+    resource: "@BackendMedecinBundle/Controller/"
+    type: annotation
+    prefix: /
+
+backend_hospital_affichedossiermedical:
+    pattern:  /affiche
+    defaults: { _controller: BackendMedecinBundle:DossierMedical:index }
+    
+backend_hospital_dossiermedical:
+    pattern:  /dossiermedical/{id}
+    defaults: { _controller: BackendMedecinBundle:DossierMedical:show }
+    
+backend_hospital_deleteintervention:
+    pattern:  /deleteIntervention/{id}/{idm}
+    defaults: { _controller: BackendMedecinBundle:Intervention:delete2 }
+    
+backend_hospital_ajoutintervention:
+    pattern:  /ajoutIntervention/{id}
+    defaults: { _controller: BackendMedecinBundle:Intervention:ajout }
+    
+backend_medecin_ajoutallergie:
+    pattern:  /addAllergies/{id}
+    defaults: { _controller: BackendMedecinBundle:Allergie:ajout }
+    
+backend_hospital_deleteAllergie:
+    pattern:  /SuppAllergies/{id}/{idm}
+    defaults: { _controller: BackendMedecinBundle:Allergie:delete }
+    
+backend_medecin_ajoutobservation:
+    pattern:  /addObservation/{id}
+    defaults: { _controller: BackendMedecinBundle:Observation:ajout }
+    
+backend_hospital_deleteObservation:
+    pattern:  /SuppObservation/{id}/{idm}
+    defaults: { _controller: BackendMedecinBundle:Observation:delete }
+    
+backend_medecin_ajoutMaladie:
+    pattern:  /addMaladie/{id}
+    defaults: { _controller: BackendMedecinBundle:Maladie:ajout }
+    
+backend_hospital_deleteMaladie:
+    pattern:  /SuppMaladie/{id}/{idm}
+    defaults: { _controller: BackendMedecinBundle:Maladie:delete }
+    
+backend_medecin_ajoutTraitement:
+    pattern:  /addTraitement/{id}
+    defaults: { _controller: BackendMedecinBundle:Traitement:ajout }
+    
+backend_hospital_deleteTraitement:
+    pattern:  /SuppTraitement/{id}/{idm}
+    defaults: { _controller: BackendMedecinBundle:Traitement:delete }
+    
+backend_hospital_printdossier:
+    pattern:  /printpdf/{id}
+    defaults: { _controller: BackendMedecinBundle:DossierMedical:print }
+    
+envoyernewmsgpat:
+    pattern: /envoyernewmsgtopat
+    defaults: { _controller: BackendMedecinBundle:messagepatient:envoyernewmsgtopat }    
+
+envoyermsgpat:
+    pattern: /envoyermsgpat/{id2}
+    defaults: { _controller: BackendMedecinBundle:messagepatient:envoyermsgtopat}
+
+listmsgmed:
+    pattern: /listmsgmed
+    defaults: { _controller: BackendMedecinBundle:messageMed:affichermsgmed }

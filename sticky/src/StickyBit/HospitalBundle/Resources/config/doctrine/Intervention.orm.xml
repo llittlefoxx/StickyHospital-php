@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="StickyBit\HospitalBundle\Entity\Intervention" table="intervention">
+    <id name="idIntervention" type="integer" column="id_intervention">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="libIntervention" type="string" column="lib_intervention" length="254" nullable="true"/>
+    <field name="prixInterv" type="float" column="prix_interv" nullable="true"/>
+    <field name="dateInterv" type="datetime" column="date_interv" nullable="true"/>
+    <many-to-one field="idDossiermedical" target-entity="DossierMedical">
+      <join-columns>
+        <join-column name="id_dossiermedical" referenced-column-name="id_dossiermedical"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

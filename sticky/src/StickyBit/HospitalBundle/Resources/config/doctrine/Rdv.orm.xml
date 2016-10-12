@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="StickyBit\HospitalBundle\Entity\Rdv" table="rdv">
+    <id name="idRdv" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="dateRdv" type="datetime" column="date_rdv" nullable="true"/>
+    <many-to-one field="idMedecin" target-entity="Medecin">
+      <join-columns>
+        <join-column name="id_medecin" referenced-column-name="id_medecin"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idPatient" target-entity="Patient">
+      <join-columns>
+        <join-column name="id_patient" referenced-column-name="id_patient"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idserv" target-entity="Service">
+      <join-columns>
+        <join-column name="id_serv" referenced-column-name="id_serv"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

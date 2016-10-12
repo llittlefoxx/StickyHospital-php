@@ -1,0 +1,8 @@
+parameters:
+#    sticky_bit_hospital.example.class: StickyBit\HospitalBundle\Example
+
+services:
+  # [...] Vos autres services
+  redirect.after.login:
+    class: StickyBit\HospitalBundle\Redirection\AfterLoginRedirection
+    arguments: [@router]

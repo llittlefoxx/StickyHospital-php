@@ -1,0 +1,43 @@
+Facture:
+    type: entity
+    table: facture
+    fields:
+        idFacture:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_facture
+            generator:
+                strategy: IDENTITY
+        dateFacturation:
+            type: datetime
+            nullable: true
+            column: date_facturation
+        etat:
+            type: boolean
+            nullable: true
+        totalFacture:
+            type: float
+            nullable: true
+            column: total_facture
+    manyToOne:
+        idPatient:
+            targetEntity: Patient
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_patient:
+                    referencedColumnName: id_patient
+            orphanRemoval: false
+        idDadmin:
+            targetEntity: DossierAdministratif
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_dadmin:
+                    referencedColumnName: id_dadmin
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

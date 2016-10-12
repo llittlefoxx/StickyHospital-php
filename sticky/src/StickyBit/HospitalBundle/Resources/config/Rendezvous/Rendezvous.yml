@@ -1,0 +1,7 @@
+listerrdv:
+    path: /listeRendezVous
+    defaults: { _controller: StickyBitHospitalBundle:Rdv:liste }
+    
+rendezvousdata:
+    path: /listeRendezVous/data
+    defaults: { _controller: StickyBitHospitalBundle:Rdv:getEvenements }

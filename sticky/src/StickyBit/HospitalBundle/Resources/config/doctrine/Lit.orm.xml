@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="StickyBit\HospitalBundle\Entity\Lit" table="lit">
+    <id name="idLit" type="integer" column="id_lit">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="etat" type="string" column="etat" length="25" nullable="true"/>
+    <many-to-one field="idServ" target-entity="Service">
+      <join-columns>
+        <join-column name="id_serv" referenced-column-name="id_serv"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idChambre" target-entity="Chambre">
+      <join-columns>
+        <join-column name="id_chambre" referenced-column-name="id_chambre"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

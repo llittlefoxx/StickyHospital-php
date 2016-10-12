@@ -1,0 +1,31 @@
+{% extends "StickyBitHospitalBundle::layout.html.twig" %}
+{% block title %}{{ parent() }}  Mes Factures{% endblock %}
+{% block content %}
+    <h1>Les lignes de la Facture</h1>
+{{ parent() }} 
+
+{% block body -%}
+    {%block main %}
+    <table  id="example1" class="table table-bordered table-striped" style="text-align: center">
+    <tr>
+        <td> Libelle</td>
+        <td> Quantité</td>
+        <td> Prix</td>
+        
+    </tr>
+
+
+{% for ligne in tab %}
+    <tr>
+        <td> {{ ligne.libLigne }} </td>
+        <td> {{ ligne.quantite }} </td>
+        <td> {{ ligne.prix }} </td>
+    
+    </tr>
+ 
+{% endfor %}
+    </table>
+<a href="{{path("sticky_bit_hospital_pdf",{"id":id} )}}">imprimer</a>
+{% endblock %}
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="StickyBit\HospitalBundle\Entity\Hospitalisation" table="hospitalisation">
+    <id name="idHos" type="integer" column="id_hos">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="dateH" type="string" column="date_h" length="50" nullable="true"/>
+    <field name="dateS" type="string" column="date_s" length="50" nullable="true"/>
+    <field name="idMed" type="integer" column="id_med" nullable="true"/>
+    <field name="typeAdmisssion" type="string" column="type_admisssion" length="254" nullable="true"/>
+    <field name="etatPatient" type="string" column="etat_patient" length="254" nullable="true"/>
+    <many-to-one field="idLit" target-entity="Lit">
+      <join-columns>
+        <join-column name="id_lit" referenced-column-name="id_lit"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="admLogin" target-entity="Admin">
+      <join-columns>
+        <join-column name="adm_login" referenced-column-name="login"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idPatient" target-entity="Patient">
+      <join-columns>
+        <join-column name="id_patient" referenced-column-name="id_patient"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

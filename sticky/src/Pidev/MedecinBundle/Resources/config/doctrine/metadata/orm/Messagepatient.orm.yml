@@ -1,0 +1,32 @@
+Messagepatient:
+    type: entity
+    table: messagepatient
+    fields:
+        idMsg:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_msg
+            generator:
+                strategy: IDENTITY
+        dateEnv:
+            type: datetime
+            nullable: true
+            column: date_env
+        corp:
+            type: string
+            length: 254
+            fixed: false
+            nullable: true
+    manyToOne:
+        idPatient:
+            targetEntity: Patient
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_patient:
+                    referencedColumnName: id_patient
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

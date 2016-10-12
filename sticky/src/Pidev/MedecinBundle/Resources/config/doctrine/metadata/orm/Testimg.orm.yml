@@ -1,0 +1,15 @@
+Testimg:
+    type: entity
+    table: testimg
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        img:
+            type: text
+            nullable: false
+    lifecycleCallbacks: {  }

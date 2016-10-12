@@ -1,0 +1,14 @@
+{% extends "StickyBitHospitalBundle::layout.html.twig" %}
+{% block haed %}
+    {{ parent() }}
+    {% block title %}{{ parent() }} Messagerie{% endblock %}
+
+{% endblock %}
+{% block menu %}{{ parent() }}
+<form action="" method="post">
+    {{form_widget(form)}}
+    <input type="submit" value="envoyer"/>
+    
+</form> 
+ {% endblock %}
+ 

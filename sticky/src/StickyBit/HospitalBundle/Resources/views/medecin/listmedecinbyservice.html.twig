@@ -1,0 +1,54 @@
+{# empty Twig template #}
+
+<form action="" method="post">
+      <table border="1">
+            <tr>
+                <th>service</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>mail</th>
+                <th>phone</th>
+                <th>specialite</th>     
+            </tr>
+         
+            
+            {% for m in listamed %}
+                <tr>
+                    <td>  <input   value="{{service}}" readonly name="service" ></input></td>
+                   
+                    <td>
+                      {{m.nomMedecin}}  
+                    </td>
+                    <td>
+                      {{m.prenomMedecin}}  
+                    </td>
+                    
+                    <td>
+                        <input   value="{{m.mailMedecin}}" readonly name="mail" ></input>
+                    </td>
+                   
+                     <td>
+                      {{m.telMedecin}}  
+                    </td>
+                     <td>
+                      {{m.specialiteMedecin}}  
+                    </td>
+       
+                  <td>  <input id="field1" class="form-control" type="date" onchange="myFunction()" 
+                               min="2015-04-06" required="required"
+                               placeholder="MM/JJ/AAAA" name="debut" 
+                      style="width:200px;margin-left:110px;margin-top:-25px;">
+                                   
+                      </input>
+                     
+                  </td>
+                    
+   <input type="submit" value="Fixer la date"/>  
+                </tr>
+
+                {% endfor %}
+        </table>        
+        
+      </form>  
+  
+  

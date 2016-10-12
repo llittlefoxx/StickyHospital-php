@@ -1,0 +1,117 @@
+{% extends "StickyBitHospitalBundle::layout.html.twig" %}
+{% block title %}{{ parent() }}  Mes Factures{% endblock %}
+{% block content %}
+    {{ parent() }} 
+
+{% block body -%}
+    {%block main %}
+        <center>
+    <h2> Mr/Mme ( {{pat.nomPatient}} {{pat.prenomPatient}} )</h2>
+<p>
+<table>
+    <tr> 
+        <td> <li>Identifiant  </li>
+        <td> : {{pat.idPatient}} <td>
+    </tr>
+    <tr> 
+        <td> <li>Nom  </li>
+        <td> : {{pat.nomPatient}} <td>
+    </tr>
+     <tr> 
+        <td> <li>Prénom </li>
+        <td> : {{pat.prenomPatient}} <td>
+    </tr>
+     <tr> 
+        <td> <li>C.I.N </li>
+        <td> : {{pat.cinPatient}} <td>
+    </tr>
+     <tr> 
+        <td> <li>Date de Naissance </li>
+        <td> : {{pat.dateNPatient|date('Y-m-d H:i:s')}} <td>
+    </tr>
+     <tr> 
+        <td> <li>C.I.N </li>
+        <td> : {{pat.cinPatient}} <td>
+    </tr>
+     <tr> 
+        <td> <li>Adresse </li>
+        <td> : {{pat.adresse}} <td>
+    </tr>
+     <tr> 
+        <td> <li>Téléphone </li>
+        <td> : {{pat.telPatient}} <td>
+    </tr>
+     <tr> 
+        <td> <li>Adresse mail </li>
+        <td> : {{pat.mailPatient}} <td>
+    </tr>
+   
+ </table>
+</br></br>
+<h2> Historique des hospitalisations </h2>
+        </center>
+</br>
+ <table  id="example1" class="table table-bordered table-striped" style="text-align: center">
+    <tr>
+        <th>ID Hospitalisation </th>       
+        <th>La date d'entrée </th>
+        <th>La date de sortie </th>
+        <th>Type d'admission </th>
+        <th>Etat du patient </th>
+        <th>Médecin responsable </th>
+        <th> Imprimer </th>
+        
+    </tr>
+   
+   {% for h in hos %}
+        <tr>
+            <td>{{h.idHos}}</td>           
+            <td>{{h.dateH|date('D M Y')}}</td>
+            <td>{{h.dateS|date('D M Y')}}</td>
+            <td>{{h.typeAdmisssion}}</td>
+            <td>{{h.etatPatient}}</td>
+            
+           <td>{{h.getIdMedecin().nomMedecin}}</td>
+            
+            <td>   <a href="{{path("sticky_bit_hospital_pdf_hos",{"id":h.idHos} )}}">imprimer</a> </td>
+            
+                      
+        </tr>
+    {% endfor %}    
+   
+</table>
+    
+    <center>  <h2>Liste des Factures</h2>  </center>
+    <br>
+
+        <table  id="example1" class="table table-bordered table-striped" style="text-align: center">  
+    <tr>
+        <td> Numéro Facture</td>
+        <td> Date Facturation</td>
+        <td> Etat de la Facture</td>
+        <td> Total de la Facture</td>
+        <td> Voir Plus </td>
+    </tr>
+
+
+
+{% for facture in facture %}
+    <tr> 
+        <td> {{ facture.idFacture }}  </td>
+        <td> {{ facture.dateFacturation|date('D M Y') }} </td>
+        <td>{{ facture.etat }} </td>
+        <td>{{ facture.totalFacture }}  </td>
+        <td> <a href="{{path('sticky_bit_hospital_ligne',{'id':facture.idFacture})}}"> Afficher</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+    
+   {% endblock %}
+
+{% endblock %}
+{% endblock %}
+
+
+

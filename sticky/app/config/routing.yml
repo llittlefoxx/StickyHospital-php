@@ -1,0 +1,34 @@
+sticky_bit_backend_medecin:
+    resource: "@BackendMedecinBundle/Resources/config/routing.yml"
+    prefix:   /Backend
+
+sticky_bit_hospital:
+    resource: "@StickyBitHospitalBundle/Resources/config/routing.yml"
+    prefix:   /Hopital
+    
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+
+pidev_medecin:
+    resource: "@PidevMedecinBundle/Resources/config/routing.yml"
+    prefix:   /Medecin
+MedecinBundle: 
+    resource: "@PidevMedecinBundle/Controller/" 
+    type:     annotation 
+    prefix:   /Medecin

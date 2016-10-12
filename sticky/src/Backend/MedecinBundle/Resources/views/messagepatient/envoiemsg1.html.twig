@@ -1,0 +1,11 @@
+
+{% extends "BackendMedecinBundle::layout.html.twig" %}
+{% block title %}{{ parent() }} Home Page {% endblock %}
+{% block content %}{{ parent() }}
+<form action="" method="post">
+    {{form_widget(form)}}
+    <input type="submit" value="envoyer"/>
+    
+</form> 
+ {% endblock %}
+ 

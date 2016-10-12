@@ -1,0 +1,56 @@
+<?php
+
+namespace StickyBit\HospitalBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Chambre
+ *
+ * @ORM\Table(name="chambre")
+ * @ORM\Entity
+ */
+class Chambre
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_chambre", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idChambre;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="capacite", type="integer", nullable=true)
+     */
+    private $capacite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=254, nullable=true)
+     */
+    private $type;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etat", type="string", length=25, nullable=true)
+     */
+    private $etat;
+
+    /**
+     * @var \Service
+     *
+     * @ORM\ManyToOne(targetEntity="Service")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_serv", referencedColumnName="id_serv")
+     * })
+     */
+    private $idServ;
+
+
+}

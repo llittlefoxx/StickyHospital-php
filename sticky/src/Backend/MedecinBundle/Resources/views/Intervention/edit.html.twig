@@ -1,0 +1,66 @@
+{% extends "BackendHospitalBundle::layout.html.twig" %}
+{% block title %}{{ parent() }} Home Page {% endblock %}
+{% block body -%}
+    {% block menu %}
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                    </div>
+                    <div class="pull-left info">
+                        <p>Alexander Pierce</p>
+                        <!-- Status -->
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <ul class="sidebar-menu">
+                    <!-- Optionally, you can add icons to the links -->
+                    <li><a href="#">Planification des RDVs</a><</li>
+                    <li>
+                        <a href="{{ path('backend_hospital_dossiermedical') }}">
+                            <i class="fa fa-folder"></i> Dossier Médical
+
+                        </a>
+                    </li>
+
+                </ul><!-- /.sidebar-menu -->
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+    {% endblock %}
+    {% block content %}
+      <a href="{{path('backend_hospital_dossiermedical',{'id':id})}}"><i class="fa  fa-reply pull-left"></i> </a><h3>Modifier Intervention</h3>
+    {%endblock%}
+    {% block main %}
+
+
+        <form action="" method ="post" {{ form_enctype(Form) }} >
+            <table>
+                <tr>
+                    <td>Libelle Intervention: </td>
+                    <td>{{form_widget(Form.libIntervention)}}</td>
+                </tr>
+                <tr>
+                    <td>Prix Intervention: </td>
+                    <td>{{form_widget(Form.prixInterv)}}</td>
+                </tr>
+                <tr>
+                    <td>date Intervention: </td>
+                    <td>{{form_widget(Form.dateInterv)}}</td>
+                </tr>
+            </table>
+            <input type="submit"/>
+            {{form_rest(Form)}}
+        </form>
+
+    {% endblock %}
+{% endblock %}
+

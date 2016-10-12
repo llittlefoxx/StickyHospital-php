@@ -1,0 +1,53 @@
+{% extends "PidevMedecinBundle::layout2.html.twig" %}
+{% block title %}{{ parent() }} Rdv{% endblock %}
+{% block content %}{{ parent() }} 
+
+
+
+    {% block calender %}{{ parent() }} 
+        {% block test %}
+        <section>
+            
+            <table class="record_properties" border='1'>
+                <tbody>
+                    <tr>
+                        <th>Id RDV</th>
+                        <td>{{ entity.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Patient</th>
+                        <td>{{ entity.idPatient }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Date RDV</th>
+                        <td>{{ entity.dateRdv|date('Y-m-d H:i:s') }}</td>
+                    </tr>
+                    <tr>
+                        <th>Service</th>
+                        <td>{{ entity.idServ }}</td>
+                    </tr>
+                    <tr>
+                        <th>Medecin</th>
+                        <td>{{ entity.idMedecin }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+            <a href="{{ path('rdv') }}">
+                <button>Revenir a la list des RDV</button>
+            </a>
+
+
+            <a href="{{ path('rdv_edit', { 'id': entity.id }) }}">
+                <button>Editer RDV</button>
+            </a>
+            {{ form(delete_form) }}
+        </section>
+    {% endblock %}
+    {% endblock %}
+{% endblock %}
+
+

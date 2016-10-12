@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="StickyBit\HospitalBundle\Entity\MessageMed" table="message_med">
+    <id name="idMessage" type="integer" column="id_message">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="corp" type="string" column="corp" length="254" nullable="true"/>
+    <field name="dateEnv" type="datetime" column="date_env" nullable="true"/>
+    <many-to-one field="idMedecin" target-entity="Medecin">
+      <join-columns>
+        <join-column name="id_medecin" referenced-column-name="id_medecin"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idpatient" target-entity="Patient">
+      <join-columns>
+        <join-column name="idpatient" referenced-column-name="id_patient"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

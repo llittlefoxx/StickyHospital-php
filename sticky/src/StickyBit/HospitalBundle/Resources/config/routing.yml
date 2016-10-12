@@ -1,0 +1,109 @@
+sticky_bit_hospital_homepage:
+    pattern:  /home
+    defaults: { _controller: StickyBitHospitalBundle:Default:index }    
+
+envoyernewmsgMed:
+ pattern: /envoyernewmsgtoMed
+ defaults: { _controller:StickyBitHospitalBundle:messageMed:envoyernewmsgtoMed}
+
+envoyermsgmed:
+    pattern: /envoyermsgmed/{id}
+    defaults: { _controller:StickyBitHospitalBundle:messageMed:envoyermsgtoMed}
+
+listmsgpat:
+    pattern: /listmsgpat
+    defaults: { _controller: StickyBitHospitalBundle:messagepatient:affichermsg}    
+   
+
+
+authentification:
+    pattern: /authentification
+    defaults: { _controller: StickyBitHospitalBundle:patient:authentification }
+   
+listservice:
+    pattern: /listservice
+    defaults: { _controller: StickyBitHospitalBundle:service:listservice }
+    
+
+    
+listmedecin:
+    pattern: /listmedecin
+    defaults: { _controller: StickyBitHospitalBundle:service:listmed }
+    
+
+
+
+
+
+
+homemed:
+    pattern: /homemed
+    defaults: { _controller:StickyBitHospitalBundle:messagepatient:afficherhome}    
+  
+    
+
+home:
+    pattern: /home
+    defaults: { _controller:StickyBitHospitalBundle:messagemed:afficherhomemed}
+     
+listrdv:
+ pattern: /listrdv
+ defaults: { _controller:StickyBitHospitalBundle:Rdv:listrdv}
+     
+updaterdv:
+ pattern: /updaterdv/{id}
+ defaults: { _controller:StickyBitHospitalBundle:Rdv:update}   
+ 
+sup:
+ pattern: /sup/{id}
+ defaults: { _controller:StickyBitHospitalBundle:Rdv:sup} 
+ 
+add:
+ pattern: /add
+ defaults: { _controller:StickyBitHospitalBundle:Rdv:add}   
+        
+list:
+ pattern: /list
+ defaults: { _controller:StickyBitHospitalBundle:Rdv:list} 
+ 
+sticky_bit_hospital_affichage:
+    pattern:  /affichageFact/{idPatient}
+    defaults: { _controller: StickyBitHospitalBundle:DossierAdministratif:index }
+sticky_bit_hospital_ligne:
+    pattern:  /ligneFact/{id}
+    defaults: { _controller: StickyBitHospitalBundle:DossierAdministratif:ligne }
+sticky_bit_hospital_pdf_dos:
+    pattern:  /PdfDos
+    defaults: { _controller: StickyBitHospitalBundle:DossierAdministratif:generatePdfdossier }
+    
+sticky_bit_hospital_pdf:
+    pattern:  /PdfFact/{id}
+    defaults: { _controller: StickyBitHospitalBundle:DossierAdministratif:generatePdf }
+sticky_bit_hospital_pdf_hos:
+    pattern:  /PdfHos/{id}
+    defaults: { _controller: StickyBitHospitalBundle:DossierAdministratif:generatePdfHos }
+    
+sticky_bit_hospital_affichage_ord:
+    pattern:  /affichageOrd
+    defaults: { _controller: StickyBitHospitalBundle:Ordonnance:affichage }
+sticky_bit_hospital_ligne_ord:
+    pattern:  /ligneOrd/{id}
+    defaults: { _controller: StickyBitHospitalBundle:Ordonnance:ligne }
+    
+sticky_bit_hospital_pdf_ord:
+    pattern:  /PdfOrd/{id}
+    defaults: { _controller: StickyBitHospitalBundle:Ordonnance:generatePdfOrd }
+    
+frontend_patient_homepage:
+    pattern:  /Profile/{id}
+    defaults: { _controller: StickyBitHospitalBundle:Profile:index }
+    
+frontend_patient_affichedossiermedical:
+    pattern:  /affichageDossierMedical/{id}
+    defaults: { _controller: StickyBitHospitalBundle:Profile:afficher }
+    
+frontend_patient_printdossierMedical:
+    pattern:  /printDossierMedical/{id}
+    defaults: { _controller: StickyBitHospitalBundle:Profile:print }
+   
+   

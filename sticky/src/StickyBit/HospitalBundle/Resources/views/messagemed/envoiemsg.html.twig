@@ -1,0 +1,65 @@
+{% extends "StickyBitHospitalBundle::layout.html.twig" %}
+{% block haed %}
+    {{ parent() }}
+    {% block title %}{{ parent() }} Messagerie{% endblock %}
+
+{% endblock %}
+{% block menu %}{{ parent() }}
+ <div class="col-md-4">
+
+    <!--
+
+     USERS LIST 
+
+    -->
+    <div class="box box-danger">
+        <div class="box-header with-border">
+            <h3 class="box-title"></h3>
+            <div class="box-tools pull-right"></div>
+        </div>
+        <!--
+
+         /.box-header 
+
+        -->
+        <div class="box-body no-padding">
+            <ul class="users-list clearfix">
+                {%for m in medecin2 %}
+                <li>
+    {# {%for i in img%}{% endfor %}#}
+     <a href="{{path('envoyermsgmed',{'id':m.idMedecin})}}">
+         
+  {#   <img alt="User Image" src="data:image/png;base64,{{i}}" width="80" height="80"></img>#}
+       <span class="users-list-date">{{m.nomMedecin}}<span/>{{m.prenomMedecin}} </span>
+     
+     </a>
+     
+                  
+                </li>
+               {% endfor %}
+            </ul>
+            <!--
+
+             /.users-list 
+
+            -->
+        </div>
+        <!--
+
+         /.box-body 
+
+        -->
+        <div class="box-footer text-center"></div>
+        <!--
+
+         /.box-footer 
+
+        -->
+    </div>
+    <!--
+
+    /.box 
+
+    -->
+
+</div>{% endblock %}

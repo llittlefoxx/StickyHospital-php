@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="StickyBit\HospitalBundle\Entity\Dossier" table="dossier">
+    <id name="idDossierpatient" type="integer" column="id_dossierPatient">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="dateCreationDossier" type="datetime" column="date_creation_dossier" nullable="false"/>
+    <many-to-one field="idPatient" target-entity="Patient">
+      <join-columns>
+        <join-column name="id_patient" referenced-column-name="id_patient"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

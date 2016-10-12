@@ -1,0 +1,112 @@
+<?php
+
+namespace Backend\MedecinBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Traitement
+ *
+ * @ORM\Table(name="traitement")
+ * @ORM\Entity
+ */
+class Traitement
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_traitement", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idTraitement;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lib_traitement", type="string", length=254, nullable=true)
+     */
+    private $libTraitement;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="prix_traitement", type="float", nullable=true)
+     */
+    private $prixTraitement;
+
+    /**
+     * @var \DossierMedical
+     *
+     * @ORM\ManyToOne(targetEntity="DossierMedical")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_dossiermedical", referencedColumnName="id_dossiermedical")
+     * })
+     */
+    private $idDossiermedical;
+
+    /**
+     * @var \Intervention
+     *
+     * @ORM\ManyToOne(targetEntity="Intervention")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_intervention", referencedColumnName="id_intervention")
+     * })
+     */
+    private $idIntervention;
+
+    public function getIdTraitement() {
+        return $this->idTraitement;
+    }
+
+    public function getLibTraitement() {
+        return $this->libTraitement;
+    }
+
+    public function getPrixTraitement() {
+        return $this->prixTraitement;
+    }
+
+    public function getIdDossiermedical() {
+        return $this->idDossiermedical;
+    }
+
+    public function getIdIntervention() {
+        return $this->idIntervention;
+    }
+
+    public function setIdTraitement($idTraitement) {
+        $this->idTraitement = $idTraitement;
+        return $this;
+    }
+
+    public function setLibTraitement($libTraitement) {
+        $this->libTraitement = $libTraitement;
+        return $this;
+    }
+
+    public function setPrixTraitement($prixTraitement) {
+        $this->prixTraitement = $prixTraitement;
+        return $this;
+    }
+     /**
+     * Get idDossiermedical
+     *
+     * @return \Backend\HospitalBundle\Entity\DossierMedical
+     */
+    public function setIdDossiermedical($idDossiermedical) {
+        $this->idDossiermedical = $idDossiermedical;
+        return $this;
+    }
+    /**
+     * Get idIntervention
+     *
+     * @return \Backend\HospitalBundle\Entity\Intervention
+     */
+    public function setIdIntervention($idIntervention) {
+        $this->idIntervention = $idIntervention;
+        return $this;
+    }
+
+
+}

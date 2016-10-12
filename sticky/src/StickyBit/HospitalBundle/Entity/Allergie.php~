@@ -1,0 +1,42 @@
+<?php
+
+namespace StickyBit\HospitalBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Allergie
+ *
+ * @ORM\Table(name="allergie")
+ * @ORM\Entity
+ */
+class Allergie
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_allergie", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idAllergie;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_allergie", type="string", length=254, nullable=true)
+     */
+    private $nomAllergie;
+
+    /**
+     * @var \DossierMedical
+     *
+     * @ORM\ManyToOne(targetEntity="DossierMedical")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_dossiermedical", referencedColumnName="id_dossiermedical")
+     * })
+     */
+    private $idDossiermedical;
+
+
+}

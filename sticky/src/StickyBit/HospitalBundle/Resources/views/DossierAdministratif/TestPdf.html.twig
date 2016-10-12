@@ -1,0 +1,66 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <header>
+            <aside style="width: 30%; position: relative; left: auto">
+                StickyHospital <br>
+                Z.I.Chotrana II- B.P.106 <br>
+                2083 Pole technologique <br>
+                El Ghazela <br>
+            </aside>
+        </header> <br>
+    <center>
+        <table style="text-align: center; column-span: 20; border: 1px; width: 100%">
+            <tr>
+                <td> Libelle</td>
+                <td> Quantite</td>
+                <td> Prix</td>
+
+            </tr>
+
+
+            {% for ligne in some %}
+                <tr>
+                    <td> {{ ligne.libLigne }} </td>
+                    <td> {{ ligne.quantite }} </td>
+                    <td> {{ ligne.prix }} </td>
+
+                </tr>
+
+            {% endfor %}
+        </table>
+    </center>
+        <footer style="position: absolute; bottom: 0;">
+            <div style="float: left; width: 700px">
+                StickyHospital <br>
+                Z.I.Chotrana II- B.P.106 <br>
+                2083 Pole technologique<br
+                    El Ghazela<br>
+            </div>
+           
+            
+            <div style="float: right">
+                Contact <br>
+                Tel: (+216)70.685.685 <br>
+                Email: StickyBit@gmail.com <br>
+                Site: www.StickyBite.com
+            </div>
+            
+                
+           
+            
+        </footer>
+    
+
+</body>
+
+</html>
+
+
+
+
+
+
+

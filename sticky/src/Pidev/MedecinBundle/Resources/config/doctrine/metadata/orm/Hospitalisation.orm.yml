@@ -1,0 +1,70 @@
+Hospitalisation:
+    type: entity
+    table: hospitalisation
+    fields:
+        idHos:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_hos
+            generator:
+                strategy: IDENTITY
+        dateH:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: date_h
+        dateS:
+            type: string
+            length: 50
+            fixed: false
+            nullable: true
+            column: date_s
+        idMed:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: id_med
+        typeAdmisssion:
+            type: string
+            length: 254
+            fixed: false
+            nullable: true
+            column: type_admisssion
+        etatPatient:
+            type: string
+            length: 254
+            fixed: false
+            nullable: true
+            column: etat_patient
+    manyToOne:
+        idPatient:
+            targetEntity: Patient
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_patient:
+                    referencedColumnName: id_patient
+            orphanRemoval: false
+        admLogin:
+            targetEntity: Admin
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                adm_login:
+                    referencedColumnName: login
+            orphanRemoval: false
+        idLit:
+            targetEntity: Lit
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_lit:
+                    referencedColumnName: id_lit
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

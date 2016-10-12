@@ -1,0 +1,8 @@
+{% extends "StickyBitHospitalBundle::layout.html.twig" %}
+{% block title %}{{ parent() }} Home Page {% endblock %}
+{% block content %}{{ parent() }}
+<form action="" method="post">
+    {{form_widget(Form)}}
+    <input type="submit" value="Enregister"/>
+</form> 
+ {% endblock %}

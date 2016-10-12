@@ -1,0 +1,46 @@
+Ordonnance:
+    type: entity
+    table: ordonnance
+    fields:
+        idOrdonnance:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_ordonnance
+            generator:
+                strategy: IDENTITY
+        dateOrdonnance:
+            type: datetime
+            nullable: true
+            column: date_ordonnance
+        idLigne:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_ligne
+        description:
+            type: string
+            length: 254
+            fixed: false
+            nullable: true
+    manyToOne:
+        idMedicament:
+            targetEntity: Medicament
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_medicament:
+                    referencedColumnName: id_medicament
+            orphanRemoval: false
+        idDossiermedical:
+            targetEntity: DossierMedical
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_dossiermedical:
+                    referencedColumnName: id_dossiermedical
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

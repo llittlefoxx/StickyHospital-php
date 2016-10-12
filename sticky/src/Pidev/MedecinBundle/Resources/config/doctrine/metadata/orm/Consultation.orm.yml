@@ -1,0 +1,51 @@
+Consultation:
+    type: entity
+    table: consultation
+    fields:
+        idConsultation:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_consultation
+            generator:
+                strategy: IDENTITY
+        dateConsultation:
+            type: datetime
+            nullable: true
+            column: date_consultation
+        typeConsultation:
+            type: string
+            length: 254
+            fixed: false
+            nullable: true
+            column: type_consultation
+    manyToOne:
+        idPatient:
+            targetEntity: Patient
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_patient:
+                    referencedColumnName: id_patient
+            orphanRemoval: false
+        idDossiermedical:
+            targetEntity: DossierMedical
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_dossiermedical:
+                    referencedColumnName: id_dossiermedical
+            orphanRemoval: false
+        idMedecin:
+            targetEntity: Medecin
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_medecin:
+                    referencedColumnName: id_medecin
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,7 @@
+parameters:
+#    pidev_medecin.example.class: Pidev\MedecinBundle\Example
+
+services:
+#    pidev_medecin.example:
+#        class: %pidev_medecin.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

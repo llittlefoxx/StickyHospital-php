@@ -1,0 +1,63 @@
+Patient:
+    type: entity
+    table: patient
+    fields:
+        idPatient:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_patient
+            generator:
+                strategy: IDENTITY
+        nomPatient:
+            type: string
+            length: 254
+            fixed: false
+            nullable: false
+            column: nom_patient
+        prenomPatient:
+            type: string
+            length: 254
+            fixed: false
+            nullable: false
+            column: prenom_patient
+        cinPatient:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: cin_patient
+        adresse:
+            type: string
+            length: 254
+            fixed: false
+            nullable: true
+        telPatient:
+            type: string
+            length: 254
+            fixed: false
+            nullable: true
+            column: tel_patient
+        mailPatient:
+            type: string
+            length: 254
+            fixed: false
+            nullable: true
+            column: mail_patient
+        urlPhotoPatient:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+            column: url_photo_patient
+        sexPatient:
+            type: string
+            length: 254
+            fixed: false
+            nullable: true
+            column: sex_patient
+        dateNPatient:
+            type: datetime
+            nullable: true
+            column: date_n_patient
+    lifecycleCallbacks: {  }

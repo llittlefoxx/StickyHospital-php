@@ -1,0 +1,91 @@
+<?php
+
+namespace StickyBit\HospitalBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Medecin
+ *
+ * @ORM\Table(name="medecin")
+ * @ORM\Entity
+ */
+class Medecin
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_medecin", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idMedecin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_medecin", type="string", length=254, nullable=true)
+     */
+    private $nomMedecin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom_medecin", type="string", length=254, nullable=true)
+     */
+    private $prenomMedecin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse_medecin", type="string", length=254, nullable=true)
+     */
+    private $adresseMedecin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mail_medecin", type="string", length=254, nullable=true)
+     */
+    private $mailMedecin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tel_medecin", type="string", length=254, nullable=true)
+     */
+    private $telMedecin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="specialite_medecin", type="string", length=254, nullable=true)
+     */
+    private $specialiteMedecin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cin_medecin", type="string", length=254, nullable=true)
+     */
+    private $cinMedecin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="urlPhoto", type="blob", nullable=true)
+     */
+    private $urlphoto;
+
+    /**
+     * @var \Service
+     *
+     * @ORM\ManyToOne(targetEntity="Service")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_service", referencedColumnName="id_serv")
+     * })
+     */
+    private $idService;
+
+
+}

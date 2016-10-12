@@ -1,0 +1,12 @@
+pidev_medecin_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: PidevMedecinBundle:Default:index }
+rechPat:
+    pattern:  /searchPat
+    defaults: { _controller: PidevMedecinBundle:Patient:search }
+rechPater:
+    pattern:  /msg/{name}
+    defaults: { _controller: PidevMedecinBundle:Patient:index }
+contact:
+    pattern:  /contact
+    defaults: { _controller: PidevMedecinBundle:Page:contact }

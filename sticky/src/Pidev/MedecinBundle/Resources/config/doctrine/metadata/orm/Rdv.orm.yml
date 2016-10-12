@@ -1,0 +1,44 @@
+Rdv:
+    type: entity
+    table: rdv
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        dateRdv:
+            type: datetime
+            nullable: true
+            column: date_rdv
+    manyToOne:
+        idPatient:
+            targetEntity: Patient
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_patient:
+                    referencedColumnName: id_patient
+            orphanRemoval: false
+        idMedecin:
+            targetEntity: Medecin
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_medecin:
+                    referencedColumnName: id_medecin
+            orphanRemoval: false
+        idServ:
+            targetEntity: Service
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_serv:
+                    referencedColumnName: id_serv
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

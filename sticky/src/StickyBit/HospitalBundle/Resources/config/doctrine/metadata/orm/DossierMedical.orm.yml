@@ -1,0 +1,68 @@
+DossierMedical:
+    type: entity
+    table: dossier_medical
+    fields:
+        idDossiermedical:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_dossiermedical
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idOrdonnannce:
+            targetEntity: Ordonnance
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_ordonnannce:
+                    referencedColumnName: id_ordonnance
+            orphanRemoval: false
+        idObservation:
+            targetEntity: Observation
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_observation:
+                    referencedColumnName: id_observation
+            orphanRemoval: false
+        idMaladie:
+            targetEntity: Maladie
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_maladie:
+                    referencedColumnName: id_maladie
+            orphanRemoval: false
+        idAllergie:
+            targetEntity: Allergie
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_allergie:
+                    referencedColumnName: id_allergie
+            orphanRemoval: false
+        idIntervention:
+            targetEntity: Intervention
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_intervention:
+                    referencedColumnName: id_intervention
+            orphanRemoval: false
+        idDossierpatient:
+            targetEntity: Dossier
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_dossierPatient:
+                    referencedColumnName: id_dossierPatient
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

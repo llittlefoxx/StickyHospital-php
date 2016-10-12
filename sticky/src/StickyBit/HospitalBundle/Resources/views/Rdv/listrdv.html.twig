@@ -1,0 +1,36 @@
+{% extends "StickyBitHospitalBundle::layout.html.twig" %}
+{% block title %}{{ parent() }} Rdv{% endblock %}
+{% block main %}{{ parent() }} 
+
+
+    {% block calender %}{{ parent() }} 
+   
+        <section>
+            <table class="table table-bordered table-striped" style="text-align: center">
+  
+    <th>Date Rendez vous</th>
+    <th>heure</th>
+    <th>Service de rendez vous</th>
+    <th>Medecin</th>
+    
+      {% for m in mods%}
+    <tr> 
+    <th>{{ m.dateRdv|date('Y/m/d') }}</th>
+    <th>{{ m.dateRdv|date('H:i:s') }}</th>
+    <th>{{ m.getIdServ().nomServ}}</th>    
+    <th>{{ m.getIdMedecin().nomMedecin}}</th> 
+    <th>  <a href="{{ path('updaterdv', {'id':m.idRdv}) }}">
+                <button>Changer votre Rendez-vous</button>
+      </a>
+     </th> 
+      <th>  <a href="{{ path('sup', {'id':m.idRdv}) }}">
+                <button>Annuler</button>
+      </a>
+     </th>
+    {% endfor %} 
+                     </section>
+   
+            </table>
+  {% endblock %}
+{% endblock %}
+  

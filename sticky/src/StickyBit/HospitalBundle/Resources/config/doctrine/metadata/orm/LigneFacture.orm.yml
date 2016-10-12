@@ -1,0 +1,54 @@
+LigneFacture:
+    type: entity
+    table: ligne_facture
+    fields:
+        idLigne:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_ligne
+            generator:
+                strategy: IDENTITY
+        quantite:
+            type: integer
+            unsigned: false
+            nullable: true
+        prix:
+            type: float
+            nullable: true
+        libLigne:
+            type: string
+            length: 254
+            fixed: false
+            nullable: true
+            column: lib_ligne
+    manyToOne:
+        idMedicament:
+            targetEntity: Medicament
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_medicament:
+                    referencedColumnName: id_medicament
+            orphanRemoval: false
+        idIntervention:
+            targetEntity: Intervention
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_intervention:
+                    referencedColumnName: id_intervention
+            orphanRemoval: false
+        idFacture:
+            targetEntity: Facture
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_facture:
+                    referencedColumnName: id_facture
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,23 @@
+{% extends "PidevMedecinBundle::layout.html.twig" %}
+{% block title %}{{ parent() }}  Editer un RDV{% endblock %}
+{% block content %}
+    Editer un RDV
+{{ parent() }} 
+    
+
+{% block body -%}
+   
+
+    {{ form(edit_form) }}
+        <ul class="record_actions">
+    
+        <a href="{{ path('rdv') }}">
+            <button>Revenir a liste des RDV</button>
+        </a>
+            
+ 
+  
+   {{ form(delete_form) }}
+</ul>
+{% endblock %}
+{% endblock %}

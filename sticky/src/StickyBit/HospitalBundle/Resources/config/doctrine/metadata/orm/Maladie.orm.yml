@@ -1,0 +1,19 @@
+Maladie:
+    type: entity
+    table: maladie
+    fields:
+        idMaladie:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: id_maladie
+            generator:
+                strategy: IDENTITY
+        nomMaladie:
+            type: string
+            length: 254
+            fixed: false
+            nullable: true
+            column: nom_maladie
+    lifecycleCallbacks: {  }

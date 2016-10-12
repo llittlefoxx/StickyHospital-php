@@ -1,0 +1,59 @@
+<?php
+
+namespace StickyBit\HospitalBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Traitement
+ *
+ * @ORM\Table(name="traitement")
+ * @ORM\Entity
+ */
+class Traitement
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_traitement", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idTraitement;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lib_traitement", type="string", length=254, nullable=true)
+     */
+    private $libTraitement;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="prix_traitement", type="float", nullable=true)
+     */
+    private $prixTraitement;
+
+    /**
+     * @var \DossierMedical
+     *
+     * @ORM\ManyToOne(targetEntity="DossierMedical")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_dossiermedical", referencedColumnName="id_dossiermedical")
+     * })
+     */
+    private $idDossiermedical;
+
+    /**
+     * @var \Intervention
+     *
+     * @ORM\ManyToOne(targetEntity="Intervention")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_intervention", referencedColumnName="id_intervention")
+     * })
+     */
+    private $idIntervention;
+
+
+}

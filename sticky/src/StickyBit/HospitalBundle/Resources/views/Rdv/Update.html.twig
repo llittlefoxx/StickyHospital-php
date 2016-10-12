@@ -1,0 +1,13 @@
+
+ {% extends "StickyBitHospitalBundle::layout.html.twig" %}
+{% block title %}{{ parent() }} Rdv{% endblock %}
+{% block main %}{{ parent() }} 
+
+
+    {% block calender %}{{ parent() }} 
+<form action="" method="post">
+    {{form_widget(Form)}}
+    <input type="submit" value="Enregister"/>
+</form> 
+ {% endblock %}
+  {% endblock %}
